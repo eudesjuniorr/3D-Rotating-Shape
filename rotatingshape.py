@@ -5,23 +5,29 @@ import pygame
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
-
-# Defina a posição central da janela
+# Central position of window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 RES = WIDTH, HEIGHT = 800, 800
 
-pygame.display.set_icon(pygame.Surface((1, 1)))
+# create a 1x1 white surface
+superficie = pygame.Surface((1, 1))
+superficie.fill((255, 255, 255))
+
+# set the window icon to be the same as the surface
+pygame.display.set_icon(superficie)
 
 pixel_width = 20
 pixel_height = 20
 
 A, B = 0, 0
 
-theta_spacing = 30
+# scale of the 3D projection and the 3D rotation speed respectively
+theta_spacing = 30 # the ratio between the theta_spacing and phi_spacing can be 2:1 or 3:1, you can choose any
 phi_spacing = 5
 FPS = 20.5
 
-chars = ".,-~:;=!*#$@"
+# characters to be displayed
+chars = "............"
 
 R1 = 10
 R2 = 20
@@ -32,15 +38,17 @@ pygame.init()
 
 screen = pygame.display.set_mode(RES, pygame.RESIZABLE)
 clock = pygame.time.Clock()
-font = pygame.font.SysFont('Arial', 20, bold=True)
+font = pygame.font.SysFont('Arial', 20)
 
 def text_display(char, x, y):
     text = font.render(str(char), True, WHITE)
     text_rect = text.get_rect(center=(x, y))
     screen.blit(text, text_rect)
 
+# main loop control
 running = True
 
+# main loop
 while running:
     clock.tick(FPS)
     pygame.display.set_caption("")
