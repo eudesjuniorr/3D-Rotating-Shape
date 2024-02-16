@@ -22,9 +22,8 @@ pixel_height = 20
 A, B = 0, 0
 
 # scale of the 3D projection and the 3D rotation speed respectively
-theta_spacing = 30 # the ratio between the theta_spacing and phi_spacing can be 2:1 or 3:1, you can choose any
-phi_spacing = 5
-FPS = 20.5
+theta_spacing = 15 # 30 # the ratio between the theta_spacing and phi_spacing can be 2:1 or 3:1, you can choose any
+phi_spacing = 5 # 5
 
 # characters to be displayed
 chars = "............"
@@ -50,7 +49,6 @@ running = True
 
 # main loop
 while running:
-    clock.tick(FPS)
     pygame.display.set_caption("")
     screen.fill(BLACK)
 
